@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_1">4dp</dimen>
+    <dimen name="space_2">8dp</dimen>
+    <dimen name="space_3">12dp</dimen>
+    <dimen name="space_4">16dp</dimen>
+    <dimen name="space_5">20dp</dimen>
+    <dimen name="space_6">24dp</dimen>
+    <dimen name="space_7">32dp</dimen>
+    <dimen name="radius_card">28dp</dimen>
+    <dimen name="radius_control">16dp</dimen>
+    <dimen name="radius_pill">26dp</dimen>
+    <dimen name="appbar_height">56dp</dimen>
+    <dimen name="touch_min">44dp</dimen>
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">20dp</dimen>
+    <dimen name="icon_lg">24dp</dimen>
+    <dimen name="composer_min_height">88dp</dimen>
+</resources>

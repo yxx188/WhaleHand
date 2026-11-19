@@ -1,0 +1,7 @@
+# 复制本文件为 release.properties，填入你自己的签名信息。
+# release.properties 与 release.keystore 已被 .gitignore 忽略，永远不要提交。
+# 没有这个文件时，release 构建会跳过签名（assembleRelease 产出未签名 APK），debug 构建不受影响。
+storeFile=release.keystore
+storePassword=
+keyAlias=
+keyPassword=

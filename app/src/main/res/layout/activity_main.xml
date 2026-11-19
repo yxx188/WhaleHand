@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <!-- 深海极光 · 任务台 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_5"
+        android:paddingTop="@dimen/space_5"
+        android:paddingEnd="@dimen/space_5">
+
+        <!-- ========== 顶部玻璃 AppBar ========== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/radius_pill">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/appbar_height"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    style="@style/Widget.Whale.IconButton"
+                    android:layout_width="@dimen/touch_min"
+                    android:layout_height="@dimen/touch_min"
+                    android:layout_marginStart="6dp"
+                    android:contentDescription="返回"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="@color/text_primary"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="任务台"/>
+
+                <Space
+                    android:layout_width="@dimen/touch_min"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="6dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== Hero 卡 ========== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_logo_glow"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_logo"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="🐋"
+                        android:textSize="28sp"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_4"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.Whale.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WhaleHand"/>
+
+                    <TextView
+                        android:id="@+id/tvVersion"
+                        style="@style/TextAppearance.Whale.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_1"
+                        android:text="让 AI 替你用手点手机 · v2.0"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== 运行状态卡 ========== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="运行状态"/>
+
+                <!-- 无障碍 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:gravity="center_vertical"
+                    android:minHeight="32dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/vAccDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/dot"/>
+
+                    <TextView
+                        android:id="@+id/tvAccStatus"
+                        style="@style/TextAppearance.Whale.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_3"
+                        android:layout_weight="1"
+                        android:text="无障碍服务：未开启"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_md"
+                        android:layout_height="@dimen/icon_md"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/text_tertiary"/>
+                </LinearLayout>
+
+                <!-- 悬浮窗 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_2"
+                    android:gravity="center_vertical"
+                    android:minHeight="32dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/vOverlayDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/dot"/>
+
+                    <TextView
+                        android:id="@+id/tvOverlayStatus"
+                        style="@style/TextAppearance.Whale.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_3"
+                        android:layout_weight="1"
+                        android:text="悬浮窗权限：未授权"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_md"
+                        android:layout_height="@dimen/icon_md"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/text_tertiary"/>
+                </LinearLayout>
+
+                <!-- 辅助操作：Ghost 按钮 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_2"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAcc"
+                        style="@style/Widget.Whale.Button.Ghost"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="打开无障碍设置"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnOverlay"
+                        style="@style/Widget.Whale.Button.Ghost"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_2"
+                        android:layout_weight="1"
+                        android:text="授权悬浮窗"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== 任务目标卡 ========== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务目标"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Whale.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:hint="例如：打开设置，把屏幕亮度调到最低">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etGoal"
+                        style="@style/Widget.Whale.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:maxLines="6"
+                        android:minLines="2"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStart"
+                        style="@style/Widget.Whale.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="开始执行"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStop"
+                        style="@style/Widget.Whale.Button.Secondary"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="@dimen/space_3"
+                        android:layout_weight="1"
+                        android:text="停止"
+                        android:textColor="@color/danger"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== 设置入口（列表行） ========== -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Whale.Card.Inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:clickable="true"
+            android:contentDescription="设置：模型 / 视觉 / 记忆 / 主题"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="64dp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/space_4"
+                android:paddingTop="@dimen/space_3"
+                android:paddingEnd="@dimen/space_4"
+                android:paddingBottom="@dimen/space_3">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_md"
+                    android:layout_height="@dimen/icon_md"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_settings"
+                    android:tint="@color/accent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_3"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.Whale.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"/>
+
+                    <TextView
+                        style="@style/TextAppearance.Whale.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="模型 / 视觉 / 记忆 / 主题"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_md"
+                    android:layout_height="@dimen/icon_md"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="@color/text_tertiary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== 日志卡 ========== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:layout_marginBottom="@dimen/space_6">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.Whale.Section"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="日志"/>
+
+                    <TextView
+                        android:id="@+id/btnHistory"
+                        style="@style/Widget.Whale.Chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="32dp"
+                        android:text="历史"/>
+
+                    <TextView
+                        android:id="@+id/btnCopyLog"
+                        style="@style/Widget.Whale.Chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_2"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="32dp"
+                        android:text="复制"/>
+
+                    <TextView
+                        android:id="@+id/btnClearLog"
+                        style="@style/Widget.Whale.Chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_2"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="32dp"
+                        android:text="清空"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLog"
+                    style="@style/TextAppearance.Whale.Mono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:background="@drawable/bg_log"
+                    android:lineSpacingExtra="2dp"
+                    android:minLines="6"
+                    android:padding="14dp"
+                    android:textIsSelectable="true"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WhaleHand</string>
+    <string name="acc_desc">WhaleHand 需要无障碍权限来截屏、读取当前界面内容并模拟点击滑动，用于自动执行你下达的手机操作任务。</string>
+</resources>

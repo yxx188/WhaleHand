@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 背景：浅滩晨光 -->
+    <color name="bg">#EEF4FC</color>
+    <color name="bg_alt">#E3EDFA</color>
+    <color name="glow_cyan">#3D22D3EE</color>
+    <color name="glow_indigo">#336366F1</color>
+
+    <!-- 表面：玻璃 -->
+    <color name="surface">#E6FFFFFF</color>
+    <color name="surface_high">#F5FFFFFF</color>
+    <color name="surface_low">#B8FFFFFF</color>
+    <color name="stroke">#D5E3F3</color>
+    <color name="stroke_soft">#E9F1FB</color>
+    <color name="drawer_bg">#F2FFFFFF</color>
+    <color name="sheet_bg">#F7FFFFFF</color>
+    <color name="dialog_bg">#F7FFFFFF</color>
+
+    <!-- 文字 -->
+    <color name="text_primary">#0B1B2B</color>
+    <color name="text_secondary">#5C7490</color>
+    <color name="text_tertiary">#93A8BF</color>
+
+    <!-- 强调 -->
+    <color name="accent">#0284C7</color>
+    <color name="accent_2">#6366F1</color>
+    <color name="accent_3">#06B6D4</color>
+    <color name="accent_soft">#D9F0FC</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="btn_grad_start">#0EA5E9</color>
+    <color name="btn_grad_end">#6366F1</color>
+    <color name="on_chat_me">#FFFFFF</color>
+
+    <!-- 聊天 -->
+    <color name="chat_me_start">#0EA5E9</color>
+    <color name="chat_me_end">#6366F1</color>
+    <color name="chat_ai_bg">#F2FFFFFF</color>
+    <color name="chat_ai_stroke">#D5E3F3</color>
+
+    <!-- 输入 -->
+    <color name="input_bg">#F4F9FF</color>
+
+    <!-- 状态 -->
+    <color name="success">#059669</color>
+    <color name="danger">#E11D48</color>
+    <color name="warning">#B45309</color>
+    <color name="dot_on">#10B981</color>
+    <color name="dot_off">#B6C6D8</color>
+    <color name="track_off">#D8E4F2</color>
+    <color name="ripple">#1F0284C7</color>
+    <color name="log_bg">#F2F8FF</color>
+
+    <!-- 悬浮窗：始终深色玻璃，压在任何 App 上都清楚 -->
+    <color name="overlay_bg">#F00B1220</color>
+    <color name="overlay_stroke">#3338BDF8</color>
+    <color name="overlay_text">#E6F1FF</color>
+    <color name="overlay_sub">#8FA3BF</color>
+</resources>

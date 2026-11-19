@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/appbar_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                style="@style/Widget.Whale.IconButton"
+                android:contentDescription="返回"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/text_primary"/>
+
+            <TextView
+                style="@style/TextAppearance.Whale.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="行为"/>
+
+            <View
+                android:layout_width="@dimen/touch_min"
+                android:layout_height="@dimen/touch_min"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextAppearance.Whale.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="动作前预览、悬浮输入与过程记录。"/>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swPreview"
+                    style="@style/Widget.Whale.Switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="动作前显示预览光标"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="AI 落手之前先把落点画出来，心里有数。"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swInput"
+                    style="@style/Widget.Whale.Switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="显示悬浮输入框"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="屏幕顶部常驻一条输入框，在任何 App 里都能随时下指令。"/>
+
+                <TextView
+                    android:id="@+id/tvDotYValue"
+                    style="@style/TextAppearance.Whale.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="悬浮小圆高度：0dp"/>
+
+                <SeekBar
+                    android:id="@+id/sbDotY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:max="80"
+                    android:maxHeight="4dp"
+                    android:minHeight="4dp"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:splitTrack="false"
+                    android:thumb="@drawable/seekbar_thumb"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="收纳成小圆后，从屏幕顶部往下让开多少（0–80dp）。"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swRecordEpisode"
+                    style="@style/Widget.Whale.Switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:checked="true"
+                    android:text="记录 Episode（过程记录）"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="每局操作落成过程记录，方便回看和导出。关掉就只保留聊天记录。"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardDanger"
+            style="@style/Widget.Whale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="危险区"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swUnlimited"
+                    style="@style/Widget.Whale.Switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="无限制模式（危险）"
+                    android:textColor="@color/danger"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    style="@style/TextAppearance.Whale.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="只在本机口令解锁后出现，重启要重新解锁。开启后悬浮条描边变红。"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/Widget.Whale.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:text="保存"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

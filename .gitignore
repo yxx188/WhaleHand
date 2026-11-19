@@ -1,0 +1,37 @@
+# ---------- Android / Gradle 构建产物 ----------
+.gradle/
+.kotlin/
+build/
+captures/
+.cxx/
+local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.so
+
+# ---------- IDE ----------
+.idea/
+*.iml
+out/
+
+# ---------- 签名材料：绝对不要提交 ----------
+release.properties
+release.keystore
+*.jks
+*.keystore
+keystore.properties
+
+# ---------- 日志 / 临时 / 备份 ----------
+*.log
+*.bak
+*.orig
+*.rej
+*.tmp
+
+# ---------- 系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini

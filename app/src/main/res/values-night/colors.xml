@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 背景：深海 -->
+    <color name="bg">#05080F</color>
+    <color name="bg_alt">#0A1220</color>
+    <color name="glow_cyan">#4022D3EE</color>
+    <color name="glow_indigo">#3D6366F1</color>
+
+    <color name="surface">#14FFFFFF</color>
+    <color name="surface_high">#1FFFFFFF</color>
+    <color name="surface_low">#0DFFFFFF</color>
+    <color name="stroke">#26FFFFFF</color>
+    <color name="stroke_soft">#14FFFFFF</color>
+    <color name="drawer_bg">#F0080E18</color>
+    <color name="sheet_bg">#F20B1220</color>
+    <color name="dialog_bg">#F20B1220</color>
+
+    <color name="text_primary">#E9F5FF</color>
+    <color name="text_secondary">#92A9C4</color>
+    <color name="text_tertiary">#64788F</color>
+
+    <color name="accent">#22D3EE</color>
+    <color name="accent_2">#818CF8</color>
+    <color name="accent_3">#38BDF8</color>
+    <color name="accent_soft">#1A22D3EE</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="btn_grad_start">#0EA5E9</color>
+    <color name="btn_grad_end">#6366F1</color>
+    <color name="on_chat_me">#FFFFFF</color>
+
+    <color name="chat_me_start">#0EA5E9</color>
+    <color name="chat_me_end">#6366F1</color>
+    <color name="chat_ai_bg">#14FFFFFF</color>
+    <color name="chat_ai_stroke">#1FFFFFFF</color>
+
+    <color name="input_bg">#0DFFFFFF</color>
+
+    <color name="success">#34D399</color>
+    <color name="danger">#FB7185</color>
+    <color name="warning">#FBBF24</color>
+    <color name="dot_on">#34D399</color>
+    <color name="dot_off">#475569</color>
+    <color name="track_off">#26FFFFFF</color>
+    <color name="ripple">#33FFFFFF</color>
+    <color name="log_bg">#0A1424</color>
+
+    <color name="overlay_bg">#F00B1220</color>
+    <color name="overlay_stroke">#3338BDF8</color>
+    <color name="overlay_text">#E6F1FF</color>
+    <color name="overlay_sub">#8FA3BF</color>
+</resources>

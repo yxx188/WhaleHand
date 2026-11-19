@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- 半径取 28dp = 56dp 鲸珠的一半，光晕正好在边界处淡出，不会出现硬边 -->
+    <gradient
+        android:type="radial"
+        android:gradientRadius="28dp"
+        android:startColor="@color/glow_cyan"
+        android:endColor="@android:color/transparent"/>
+</shape>
