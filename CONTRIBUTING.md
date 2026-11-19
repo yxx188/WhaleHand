@@ -4,7 +4,7 @@
 
 ## 反馈 Bug
 
-开 issue 时请带上：
+使用问题优先在作者社区（QQ 群）反馈；确认是源码层面的 bug 再开 issue。开 issue 时请带上：
 
 - 手机型号 + Android 版本 + 系统（OriginOS / HyperOS / ...）
 - WhaleHand 版本（「设置 → 关于」里能看到）
@@ -19,6 +19,10 @@
 - 不要提交 `release.properties`、`release.keystore` 或任何 API Key
 - Windows 上工程路径别含中文/非 ASCII 字符（AGP 会直接拒绝构建）
 - 中文 / 英文注释、提交信息都可以
+
+## 授权
+
+提交 PR 即表示你同意以 **GPL-3.0** 授权这些改动。请不要引入与 GPL-3.0 不兼容的代码。
 
 ## 特别欢迎
 

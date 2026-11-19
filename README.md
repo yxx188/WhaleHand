@@ -3,7 +3,7 @@
 > 一只住在 Android 手机里的 AI 鲸鱼：你说人话，它替你点屏幕。
 
 <p align="left">
-  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
+  <img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg">
   <img alt="android" src="https://img.shields.io/badge/Android-14%2B-3DDC84?logo=android&logoColor=white">
   <img alt="kotlin" src="https://img.shields.io/badge/Kotlin-2.3-7F52FF?logo=kotlin&logoColor=white">
   <img alt="version" src="https://img.shields.io/badge/version-2.0-%2300d4ff">
@@ -100,6 +100,15 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 每一步决策都要调一次模型，一次任务 = 几十次请求，长任务很烧 token。作者实测一个月能烧掉几十块——这是真实教训，不是吓唬你。想省钱：用便宜模型、把任务目标写具体、少用视觉外挂、别跑长任务。
 
+## 📦 获取与支持
+
+- **源码**：本仓库，以 GPL-3.0 开放。
+- **安装包**：作者在社区渠道（QQ 群文件）分发，本仓库不提供公开下载入口。
+- **校验**：每次发版会在渠道里给出 APK 的 SHA256 与官方签名指纹，只认公告里的校验值；来源不明的包不要装。
+- **更新**：跟随渠道公告；同签名可直接覆盖安装，跨签名需要先备份数据再卸载重装。
+- **反馈**：使用问题优先在社区反馈，日志和截图记得脱敏；确认是源码问题再开 GitHub Issue。
+- **打赏**：纯自愿，渠道只在社区内公布；不影响授权，也不承诺任何功能或更新。
+
 ## 🛡 权限与隐私（请认真看）
 
 | 权限 | 用途 | 说明 |
@@ -136,7 +145,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 - 单步决策，没有全局规划器；复杂任务容易在中间迷路。
 - 厂商系统差异大（后台保活、悬浮窗、无障碍限制），作者只在 vivo X200 / OriginOS 上长期验证。
 - 无限制模式需要 root，且依赖明口令，**不建议日常开**。
-- 开源版本去掉了签名材料，不能直接覆盖安装作者产出的包（签名不同）。
+- 本仓库不含签名材料，自己构建的包与官方包签名不同，互相不能覆盖安装（需先备份数据并卸载）。
 
 ## 🗂 目录结构
 
@@ -170,11 +179,19 @@ docs/                        # 架构、记忆设计、截图
 
 ## 🤝 贡献
 
-见 [CONTRIBUTING.md](CONTRIBUTING.md)。特别欢迎：崩溃日志（记得脱敏）、机型适配、降本优化。
+见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [常见问题](docs/FAQ.md)。特别欢迎：崩溃日志（记得脱敏）、机型适配、降本优化。
+
+使用问题优先在作者社区反馈（QQ 群）；GitHub Issues 更适合源码层面的 bug。
 
 ## 📄 License
 
-[MIT](LICENSE)。
+本项目以 **GPL-3.0** 发布（全文见 [LICENSE](LICENSE)）。你可以自由使用、修改、分发，但修改后的版本必须同样以 GPL-3.0 开源——不能把 WhaleHand 的代码打包进闭源或私有产品里收费发行。
+
+### 名称与官方包
+
+- 「WhaleHand」名称、图标和官方签名指纹只属于本项目发行版；第三方修改版必须改名、换图标，不得冒充官方包。
+- 安装包只在作者社区渠道分发，本仓库不提供公开下载；以渠道公告里的 SHA256 与签名指纹为准，其他来源的包一律不认。
+- 打赏纯属自愿，不影响授权；渠道只在作者社区内公布。
 
 ## 🙏 致谢
 
