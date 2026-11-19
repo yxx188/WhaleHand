@@ -49,8 +49,8 @@ android {
         applicationId = "com.whale.hand"
         minSdk = 34 
         targetSdk = 36  
-        versionCode = 8
-        versionName = "2.0"
+        versionCode = 9
+        versionName = "2.0.1"
         
         vectorDrawables { 
             useSupportLibrary = true

@@ -6,7 +6,7 @@
   <img alt="license" src="https://img.shields.io/badge/license-GPLv3-blue.svg">
   <img alt="android" src="https://img.shields.io/badge/Android-14%2B-3DDC84?logo=android&logoColor=white">
   <img alt="kotlin" src="https://img.shields.io/badge/Kotlin-2.3-7F52FF?logo=kotlin&logoColor=white">
-  <img alt="version" src="https://img.shields.io/badge/version-2.0-%2300d4ff">
+  <img alt="version" src="https://img.shields.io/badge/version-2.0.1-%2300d4ff">
 </p>
 
 WhaleHand 是一个开源的 Android AI Agent 客户端。你不需要记按钮在哪、也不需要写自动化脚本——在聊天框里说一句「打开设置看看蓝牙连没连」，它会自己拆步骤，**真的去点你的手机屏幕**；做完回来告诉你结果。

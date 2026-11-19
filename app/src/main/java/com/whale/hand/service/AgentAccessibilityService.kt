@@ -346,6 +346,31 @@ class AgentAccessibilityService : AccessibilityService() {
         return Point(rect.centerX(), rect.centerY())
     }
 
+    /**
+     * tapNode 最终会点击的位置：最近的、面积不超过半屏的可点击祖先的中心。
+     * 预览层必须用它，否则「画出来的点」和「真正点下去的点」经常不是一个地方。
+     */
+    fun nodeClickPoint(id: Int): Point? {
+        val node = nodeMap[id] ?: return null
+        val dm = resources.displayMetrics
+        val screenArea = dm.widthPixels.toLong() * dm.heightPixels
+        var p: AccessibilityNodeInfo? = node
+        var depth = 0
+        while (p != null && depth < 3) {
+            if (p.isClickable) {
+                val pr = Rect().also { p.getBoundsInScreen(it) }
+                if (pr.width().toLong() * pr.height() <= screenArea / 2) {
+                    return Point(pr.centerX(), pr.centerY())
+                }
+                break
+            }
+            p = p.parent
+            depth++
+        }
+        val r = Rect().also { node.getBoundsInScreen(it) }
+        return Point(r.centerX(), r.centerY())
+    }
+
     /** 读节点当前文字，用于输入结果校验 */
     fun nodeText(id: Int): String? = nodeMap[id]?.text?.toString()
 

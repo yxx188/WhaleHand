@@ -601,6 +601,10 @@ object OverlayManager {
             gravity = Gravity.TOP or Gravity.START
             x = 0
             y = 0
+            // 关键：全屏预览层不能被系统栏 inset 下推，否则所有坐标整体偏移
+            fitInsetsTypes = 0
+            layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         }
 
         if (runCatching { w.addView(v, params) }.isFailure) return null
@@ -657,6 +661,14 @@ class ClickMarkerView(context: Context) : View(context) {
         textSize = 36f
         textAlign = Paint.Align.CENTER
         setShadowLayer(8f, 0f, 2f, Color.parseColor("#B3000000"))
+    }
+
+    /** 坐标数字（类似开发者选项「指针位置」） */
+    private val coordPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(0xE6, 255, 255, 255)
+        textSize = 26f
+        textAlign = Paint.Align.CENTER
+        setShadowLayer(6f, 0f, 1f, Color.parseColor("#B3000000"))
     }
 
     private var pulse = 0f
@@ -724,11 +736,13 @@ class ClickMarkerView(context: Context) : View(context) {
                     canvas.drawCircle(p.x, p.y, r, strokePaint)
                     drawCross(canvas, p.x, p.y, 16f)
                     label?.let { canvas.drawText(it, p.x, p.y - r - 18f, textPaint) }
+                    drawCoords(canvas, p.x, p.y, r + 8f)
                 }
 
                 1 -> {
                     drawCross(canvas, p.x, p.y, 30f)
                     label?.let { canvas.drawText(it, p.x, p.y - 46f, textPaint) }
+                    drawCoords(canvas, p.x, p.y, 40f)
                 }
 
                 else -> {
@@ -737,6 +751,7 @@ class ClickMarkerView(context: Context) : View(context) {
                     canvas.drawRoundRect(rect, 10f, 10f, fillPaint)
                     canvas.drawRoundRect(rect, 10f, 10f, strokePaint)
                     label?.let { canvas.drawText(it, p.x, p.y - half - 18f, textPaint) }
+                    drawCoords(canvas, p.x, p.y, half + 8f)
                 }
             }
         }
@@ -753,6 +768,15 @@ class ClickMarkerView(context: Context) : View(context) {
                 canvas.drawText(it, (f.x + t.x) / 2f, minOf(f.y, t.y) - 30f, textPaint)
             }
         }
+    }
+
+    /** 在标记点下方（空间不够就上方）画坐标数字，方便核对落点 */
+    private fun drawCoords(canvas: Canvas, x: Float, y: Float, offset: Float) {
+        val text = x.toInt().toString() + ", " + y.toInt().toString()
+        val below = y + offset + 40f
+        val ty = if (below < height - 10f) below else y - offset - 40f
+        val tx = x.coerceIn(80f, width - 80f)
+        canvas.drawText(text, tx, ty, coordPaint)
     }
 
     private fun drawCross(canvas: Canvas, x: Float, y: Float, half: Float) {

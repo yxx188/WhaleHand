@@ -575,9 +575,9 @@ class AgentLoop(
         }
 
         val target: Point = when {
-            id != null -> svc.nodeCenter(id)
+            id != null -> svc.nodeClickPoint(id) ?: svc.nodeCenter(id) ?: return null
             else -> Point(act.x!!, act.y!!)
-        } ?: return null
+        }
 
         OverlayManager.beginAgentAction(target.x, target.y)
         Thread.sleep(120)
@@ -645,7 +645,9 @@ class AgentLoop(
         Thread.sleep(120)
 
         if (AgentConfig.previewEnabled && showPreview) {
-            FloatingService.showSwipe(x1, y1, x2, y2, "滑动")
+            val (ex, ey) = clampSwipeEnd(x1, y1, x2, y2)
+            FloatingService.showSwipe(x1, y1, ex, ey, "滑动")
+            if (ex != x2 || ey != y2) log("预览：纵向滑动超过 900px，实际会截断到 ($ex, $ey)")
             Thread.sleep(PREVIEW_DELAY)
         }
         if (!svc.swipe(x1.toFloat(), y1.toFloat(), x2.toFloat(), y2.toFloat())) {
@@ -654,6 +656,17 @@ class AgentLoop(
 
         Thread.sleep(250)
         OverlayManager.endAgentAction()
+    }
+
+    /** 和 AgentAccessibilityService.swipe 的截断逻辑保持一致 */
+    private fun clampSwipeEnd(x1: Int, y1: Int, x2: Int, y2: Int): Pair<Int, Int> {
+        val dx = kotlin.math.abs(x2 - x1)
+        val dy = kotlin.math.abs(y2 - y1)
+        if (dy >= dx && dy > 900) {
+            val k = 900f / dy
+            return (x1 + ((x2 - x1) * k)).toInt() to (y1 + ((y2 - y1) * k)).toInt()
+        }
+        return x2 to y2
     }
 
     private fun defaultSwipe() {
